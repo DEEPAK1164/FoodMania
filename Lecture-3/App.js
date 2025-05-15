@@ -2,10 +2,16 @@
          import React from "react"; //importing react from node module
          import ReactDOM from "react-dom/client"; //importing react-dom from node module
        
-        //Lets Write above in JSX (Developer Friendly Syntax)
-    
-        const heading=<h1 id="heading" className="myHeading">Welcome! to Food Mania</h1>
+
+        // Understanding Functional Components
+        // functional component is normal javaScript function
+        // which return some piece of JSX elements
+        const HeadingComponent=()=>{
+            return <div className="container">
+                <h1 id="heading">Hello! React Functional Component</h1>;
+            </div>
+        }
 
 
-         const root=ReactDOM.createRoot(document.getElementById("root"));
-        root.render(heading);
+        const root=ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<HeadingComponent/>);
