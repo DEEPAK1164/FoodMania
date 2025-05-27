@@ -1,0 +1,159 @@
+/* Header base style */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 0.5rem; /* equivalent to Tailwind's rounded-lg */
+
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+/* Gradient background: red to white */
+background: linear-gradient(90deg, red 0%, white 100%);
+
+}
+
+
+/* Logo */
+.logo {
+  width: 80px;
+  border-radius: 0.5rem;
+}
+
+/* Navigation menu */
+.nav-items ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-items ul li {
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ===================== */
+/* 📱 Mobile (max 600px) */
+/* ===================== */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .nav-items ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .nav-items ul li {
+    margin: 5px 0;
+  }
+}
+
+/* ========================== */
+/* 📱📲 Tablets (max 900px)    */
+/* ========================== */
+@media (min-width: 601px) and (max-width: 900px) {
+  .nav-items ul li {
+    margin: 10px;
+    font-size: 15px;
+  }
+}
+
+
+.res-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 220px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.res-card:hover {
+  transform: scale(1.03);
+}
+
+.res-logo {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.res-card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 4px;
+}
+
+.res-card p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive container for card grid */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .res-card {
+    max-width: 180px;
+  }
+
+  .res-logo {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .res-card {
+    max-width: 100%;
+  }
+
+  .res-logo {
+    height: 160px;
+  }
+
+  .res-card h3 {
+    font-size: 1rem;
+  }
+
+  .res-card p {
+    font-size: 0.85rem;
+  }
+}
+
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* OR space-evenly */
+  gap: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.res-card {
+  flex: 1 1 200px; /* make card flexible with min 200px */
+  max-width: 300px;
+}
