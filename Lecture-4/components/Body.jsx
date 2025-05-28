@@ -8,34 +8,10 @@ const Body=()=>{
               </div>
               <div className="res-container">
                 {/*restaurent-card-component*/}
-                <RestaurentCard/>
-                  <RestaurentCard/>
-                    <RestaurentCard/>
-                     <RestaurentCard/>
-                      <RestaurentCard/>
-                       <RestaurentCard/>
-                    
-                      <RestaurentCard/>
-                  <RestaurentCard/>
-                    <RestaurentCard/>
-                     <RestaurentCard/>
-                      <RestaurentCard/>
-                       <RestaurentCard/>
- <RestaurentCard/>
-                  <RestaurentCard/>
-                    <RestaurentCard/>
-                     <RestaurentCard/>
-                      <RestaurentCard/>
-                       <RestaurentCard/>
-                    
-                      <RestaurentCard/>
-                  <RestaurentCard/>
-                    <RestaurentCard/>
-                     <RestaurentCard/>
-                      <RestaurentCard/>
-                       <RestaurentCard/>
-
+          <RestaurentCard resName="Meghna Food" cuisines="North Indian, Biryani" starRating="4.2" delTime="30"/>
                  
+                  
+  
               </div>
         
       </div>
