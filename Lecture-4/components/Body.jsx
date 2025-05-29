@@ -1,17 +1,52 @@
 import React, { useEffect, useState } from "react";
 import RestaurentCard from "./RestaurentCard";
-// Hardcoded mock restaurant data
-import { mockRestaurants } from "../utils/mockData";
+
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchRestaurants = async () => {
+    try {
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+      const json = await response.json();
+
+      const restaurants = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+        
+      setRestaurantList(restaurants);
+    } catch (error) {
+      console.error("Failed to fetch restaurants:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    // Simulate fetching data (with a timeout if needed)
-    setRestaurantList(mockRestaurants);
+    fetchRestaurants();
   }, []);
+
   return (
+    <div className="body">
+    <div className="filter-restaurent">
+     <button
+  className="filter-btn"
+  onClick={() => {
+    const filteredList = restaurantList.filter(
+      (res) => res.info.avgRating >= 4.5
+    );
+    setRestaurantList(filteredList);
+  }}
+>
+  Top Rated Restaurants
+</button>
+
+    </div>
     <div className="res-container">
-      {restaurantList.length === 0 ? (
+      {loading ? (
         <h3>Loading...</h3>
+      ) : restaurantList.length === 0 ? (
+        <h3>No restaurants found</h3>
       ) : (
         restaurantList.map((res) => (
           <RestaurentCard
@@ -25,6 +60,8 @@ const Body = () => {
         ))
       )}
     </div>
+    </div>
   );
 };
+
 export default Body;
