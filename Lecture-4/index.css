@@ -223,3 +223,10 @@ background: linear-gradient(90deg, red 0%, white 100%);
     background-position: 400px 0;
   }
 }
+
+.filter-and-search{
+  display: flex;
+}
+.search{
+  margin: 10px;
+}

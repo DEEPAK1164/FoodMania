@@ -4,15 +4,22 @@ import RestaurentCard from "./RestaurentCard";
 import { SWIGGY_RESTAURANTS_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 
+
 const Body = () => {
+
   const [restaurantList, setRestaurantList] = useState([]);
+ const [copyList, setCopyList] = useState([]);
+
+
   const [loading, setLoading] = useState(true);
+  const[searchText,setSearchText]=useState("");
   const fetchRestaurants = async () => {
     try {
       const response = await fetch(SWIGGY_RESTAURANTS_URL);
       const json = await response.json();
       const restaurants = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants 
       setRestaurantList(restaurants);
+      setCopyList(restaurants);
     } catch (error) {
       console.error("Failed to fetch restaurants:", error);
     } finally {
@@ -24,6 +31,8 @@ const Body = () => {
   }, []);
   return (
     <div className="body">
+    <div className="filter-and-search">
+   
     <div className="filter-restaurent">
      <button
   className="filter-btn"
@@ -37,13 +46,25 @@ const Body = () => {
   Top Rated Restaurants
 </button>
     </div>
+     <div className="search">
+  <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+    setSearchText(e.target.value)
+  }}/>
+  <button onClick={()=>{
+    const filteredRestaurent=restaurantList.filter((res)=>{
+      return res.info.name.toLowerCase().includes(searchText.toLocaleLowerCase())
+    })
+    setCopyList(filteredRestaurent);
+  }}>Search</button>
+    </div>
+    </div>
     <div className="res-container">
       {loading ? (
         <Shimmer/>
       ) : restaurantList.length === 0 ? (
         <h3>No restaurants found</h3>
       ) : (
-        restaurantList.map((res) => (
+        copyList.map((res) => (
           <RestaurentCard
             key={res.info.id}
             resName={res.info.name}
