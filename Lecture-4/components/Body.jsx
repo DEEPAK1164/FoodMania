@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurentCard from "./RestaurentCard";
 
 import { SWIGGY_RESTAURANTS_URL } from "../utils/constants";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -38,7 +39,7 @@ const Body = () => {
     </div>
     <div className="res-container">
       {loading ? (
-        <h3>Loading...</h3>
+        <Shimmer/>
       ) : restaurantList.length === 0 ? (
         <h3>No restaurants found</h3>
       ) : (
