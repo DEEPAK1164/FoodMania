@@ -17,7 +17,7 @@ const Body = () => {
     try {
       const response = await fetch(SWIGGY_RESTAURANTS_URL);
       const json = await response.json();
-      const restaurants = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants 
+      const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
       setRestaurantList(restaurants);
       setCopyList(restaurants);
     } catch (error) {
@@ -40,7 +40,7 @@ const Body = () => {
     const filteredList = restaurantList.filter(
       (res) => res.info.avgRating >= 4.5
     );
-    setRestaurantList(filteredList);
+    setCopyList(filteredList);
   }}
 >
   Top Rated Restaurants
@@ -61,7 +61,7 @@ const Body = () => {
     <div className="res-container">
       {loading ? (
         <Shimmer/>
-      ) : restaurantList.length === 0 ? (
+      ) :  !copyList || copyList.length === 0 ?(
         <h3>No restaurants found</h3>
       ) : (
         copyList.map((res) => (
