@@ -3,6 +3,7 @@ import RestaurentCard from "./RestaurentCard";
 
 import { SWIGGY_RESTAURANTS_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -29,6 +30,10 @@ const Body = () => {
   useEffect(() => {
     fetchRestaurants();
   }, []);
+
+const onlineStatus=useOnlineStatus();
+if(onlineStatus===false) return <h1>looks like you are offline, please! connect to the internet</h1>
+
   return (
     <div className="body">
     <div className="filter-and-search">

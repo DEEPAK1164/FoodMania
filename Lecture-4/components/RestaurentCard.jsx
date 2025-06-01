@@ -14,4 +14,5 @@ const RestaurentCard = ({ resName, cuisines, starRating, delTime, imageId }) => 
     </div>
   );
 };
+
 export default RestaurentCard;

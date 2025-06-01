@@ -1,13 +1,17 @@
          
-      import React from "react"; //importing react from node module
+      import React, {lazy, Suspense} from "react"; //importing react from node module
       import ReactDOM from "react-dom/client"; //importing react-dom from node module
       import Header from "./components/Header.jsx";
       import Body from "./components/Body.jsx";
       import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
       import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
-import Error from "./components/Error.jsx";
-import RestaurentMenu from "./components/RestaurentMenu.jsx";
+      import Contact from "./components/Contact.jsx";
+      import Error from "./components/Error.jsx";
+      import RestaurentMenu from "./components/RestaurentMenu.jsx";
+    
+      const Grocery=lazy(()=>import("./components/Grocery.jsx"));
+
+
 
         const AppLayout=()=>{
             return <div className="app">
@@ -43,6 +47,10 @@ import RestaurentMenu from "./components/RestaurentMenu.jsx";
                  {
                   path:"/contact",
                   element:<Contact/>
+                 },
+                 {
+                  path:"/grocery",
+                  element:<Suspense fallback={<h1>Grocery store loading...</h1>}><Grocery/></Suspense>
                  },
                  {
                   // dynamic routing based on resId

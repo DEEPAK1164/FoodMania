@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import applogo from "../assets/applogo.png"; // 👈 Correct path from Header.jsx
 import { Link } from "react-router-dom";
-
-console.log(applogo);
+import useOnlineStatus from "../utils/useOnlineStatus";
+// console.log(applogo);
 
 const Header=()=>{
     const[btnNameReact,setBtnNameReact]=useState("Login");
-     console.log("Header Rendered!");
+    const onlineStatus=useOnlineStatus();
+   //   console.log("Header Rendered!");
 
     //when there is no dependency array useeffect called after every re render of the component
     //  useEffect(()=>{
@@ -34,9 +35,11 @@ const Header=()=>{
 
     <div className="nav-items">
        <ul>
+       <li>Online Status: {onlineStatus?"🟢":"🔴"}</li>
        <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/grocery">Our Grocery Store</Link></li>
               <li>Cart</li>
               <button className="login" onClick={()=>{
                  btnNameReact==="Login"?setBtnNameReact("Logout"):setBtnNameReact("Login");
