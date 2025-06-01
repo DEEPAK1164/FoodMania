@@ -20,7 +20,7 @@ const Header=()=>{
 
      // when dependency array depends on some dependency then useEffect will get call only when that particular dependency changes.
       useEffect(()=>{
-      console.log("useEffect Called");
+      // console.log("useEffect Called");
      },[btnNameReact])
 
 
