@@ -9,13 +9,13 @@
   },
   "author": "Deepak Maurya",
   "license": "ISC",
-  "devDependencies": {
-    "parcel": "^2.15.1"
-  },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^6.23.0",
     "react-router-dom": "^6.23.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
   }
 }

@@ -3,12 +3,12 @@ import Shimmer from './Shimmer';
 import { useParams } from 'react-router';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
 const RestaurentMenu = () => {
-  // const [resInfo, setResInfo] = useState(null);
 
   const params=useParams();
   console.log(params);
   const {resId}=params;
   console.log(resId);
+
 
 
   // const fetchMenu = async () => {
@@ -18,14 +18,15 @@ const RestaurentMenu = () => {
   //   const json = await data.json();
   //   setResInfo(json.data);
   // };
-
   // useEffect(() => {
   //   fetchMenu();
   // }, []);
+  
+
 
 
 const resInfo=useRestaurantMenu(resId);
-
+console.log(resInfo);
 
   if (resInfo === null) return <Shimmer />;
 
