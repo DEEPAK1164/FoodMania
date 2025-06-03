@@ -5,9 +5,9 @@ import useRestaurantMenu from '../utils/useRestaurantMenu';
 const RestaurentMenu = () => {
 
   const params=useParams();
-  console.log(params);
+  // console.log(params);
   const {resId}=params;
-  console.log(resId);
+  // console.log(resId);
 
 
 
@@ -26,7 +26,7 @@ const RestaurentMenu = () => {
 
 
 const resInfo=useRestaurantMenu(resId);
-console.log(resInfo);
+// console.log(resInfo);
 
   if (resInfo === null) return <Shimmer />;
 
@@ -37,17 +37,10 @@ console.log(resInfo);
     cloudinaryImageId,
   } = resInfo.cards[2]?.card?.card.info;
 
-  const dealOfTheDayItems =
-    resInfo?.cards
-      ?.find((c) =>
-        c?.groupedCard?.cardGroupMap?.REGULAR?.cards?.some((card) =>
-          card?.card?.card?.title?.toLowerCase().includes('deal of the day')
-        )
-      )
-      ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find((card) =>
-        card?.card?.card?.title?.toLowerCase().includes('deal of the day')
-      )
-      ?.card?.card?.itemCards?.map((item) => item.card.info) || [];
+ console.log(resInfo.cards[5]?.groupedCard.cardGroupMap.REGULAR.cards);
+ const arr=resInfo.cards[5]?.groupedCard.cardGroupMap.REGULAR.cards;
+ console.log(arr);
+ 
 
   return (
     <div className="menu-container">
@@ -65,32 +58,6 @@ console.log(resInfo);
         </div>
       </div>
 
-      <div className="deal-section">
-        <h2>🍽️ Deal of the Day</h2>
-        {dealOfTheDayItems.length > 0 ? (
-          <ul className="menu-items">
-            {dealOfTheDayItems.map((item) => (
-              <li key={item.id} className="menu-item-card">
-                <img
-                  src={
-                    item.imageId
-                      ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${item.imageId}`
-                      : 'https://via.placeholder.com/208?text=No+Image'
-                  }
-                  alt={item.name}
-                  className="menu-item-image"
-                />
-                <div className="menu-item-name">{item.name}</div>
-                <div className="menu-item-price">
-                  ₹{item.price ? item.price / 100 : item.defaultPrice / 100}
-                </div>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="no-deals">No "Deal of the Day" items available.</p>
-        )}
-      </div>
     </div>
   );
 };
