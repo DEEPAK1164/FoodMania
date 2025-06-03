@@ -39,7 +39,7 @@ const resInfo=useRestaurantMenu(resId);
 
  console.log(resInfo.cards[5]?.groupedCard.cardGroupMap.REGULAR.cards);
  const arr=resInfo.cards[5]?.groupedCard.cardGroupMap.REGULAR.cards;
- console.log(arr);
+//console.log(arr);
  
 
   return (
