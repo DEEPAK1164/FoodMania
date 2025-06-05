@@ -9,6 +9,7 @@ const RestaurentMenu = () => {
   // console.log(params);
   const {resId}=params;
   // console.log(resId);
+  const[showIndex,setShowIndex]=useState(0);
 
 
 
@@ -64,7 +65,7 @@ console.log(categories);
       </div>
      
            {/* Categories Accordion */}
-           {categories.map((category)=><RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}/>)}
+           {categories.map((category,index)=><RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} showItems={index===showIndex?true:false} setShowIndex={()=>setShowIndex(index)}/>)}
 
 
     </div>
