@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
+import RestaurantCategory from './RestaurantCategory';
 const RestaurentMenu = () => {
 
   const params=useParams();
@@ -37,13 +38,17 @@ const resInfo=useRestaurantMenu(resId);
     cloudinaryImageId,
   } = resInfo.cards[2]?.card?.card.info;
 
- console.log(resInfo.cards[5]?.groupedCard.cardGroupMap.REGULAR.cards);
+//  console.log(resInfo.cards[5]?.groupedCard.cardGroupMap.REGULAR.cards);
  const arr=resInfo.cards[5]?.groupedCard.cardGroupMap.REGULAR.cards;
-//console.log(arr);
+// console.log(arr);
+const categories=arr.filter((ele,ind,resInfo)=>ele?.card?.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+console.log(categories);
+
  
 
   return (
     <div className="menu-container">
+
       <div className="restaurant-header">
         <img
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300/${cloudinaryImageId}`}
@@ -57,6 +62,10 @@ const resInfo=useRestaurantMenu(resId);
           </p>
         </div>
       </div>
+     
+           {/* Categories Accordion */}
+           {categories.map((category)=><RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}/>)}
+
 
     </div>
   );
