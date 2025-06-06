@@ -1,5 +1,5 @@
          
-      import React, {lazy, Suspense} from "react"; //importing react from node module
+      import React, {lazy, Suspense, useEffect, useState} from "react"; //importing react from node module
       import ReactDOM from "react-dom/client"; //importing react-dom from node module
       import Header from "./components/Header.jsx";
       import Body from "./components/Body.jsx";
@@ -8,27 +8,38 @@
       import Contact from "./components/Contact.jsx";
       import Error from "./components/Error.jsx";
       import RestaurentMenu from "./components/RestaurentMenu.jsx";
+import UserContext from "./utils/UserContext.jsx";
     
       const Grocery=lazy(()=>import("./components/Grocery.jsx"));
 
 
 
         const AppLayout=()=>{
-            return <div className="app">
+         const[userName,setUserName]=useState();
 
+         useEffect(()=>{
+          //make api call
+          const data={
+            name:"Deepak Maurya",
+          }
+          setUserName(data.name);
+         })
+
+
+
+            return( 
+              //providing userContext to root level can use React>provider for Header only also
+           <UserContext.Provider value={{loggedInUser:userName}}>
+            <div className="app">
             {/* Header */}
             <Header/>
-
-
             {/* Body */}
              {/* <Body/> */}
              <Outlet/>
-
-
-
             {/* Footer */}
-
-          </div>
+           </div>
+           </UserContext.Provider>)
+        
          }
 
          const appRouter=createBrowserRouter([

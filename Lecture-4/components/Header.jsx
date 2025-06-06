@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import applogo from "../assets/applogo.png"; // 👈 Correct path from Header.jsx
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 // console.log(applogo);
 
 const Header=()=>{
     const[btnNameReact,setBtnNameReact]=useState("Login");
     const onlineStatus=useOnlineStatus();
+    const data=useContext(UserContext);
+    console.log(data);//object
+    const{loggedInUser}=data;
    //   console.log("Header Rendered!");
 
     //when there is no dependency array useeffect called after every re render of the component
@@ -41,11 +45,13 @@ const Header=()=>{
             <li><Link to="/contact">Contact Us</Link></li>
               <li><Link to="/grocery">Our Grocery Store</Link></li>
               <li>Cart</li>
+             
               <button className="login" onClick={()=>{
                  btnNameReact==="Login"?setBtnNameReact("Logout"):setBtnNameReact("Login");
               }}>
                {btnNameReact}
               </button>
+               <li>{loggedInUser}</li>
      </ul>
     </div>
     
