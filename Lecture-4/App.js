@@ -8,7 +8,7 @@
       import Contact from "./components/Contact.jsx";
       import Error from "./components/Error.jsx";
       import RestaurentMenu from "./components/RestaurentMenu.jsx";
-import UserContext from "./utils/UserContext.jsx";
+      import UserContext from "./utils/UserContext.jsx";
     
       const Grocery=lazy(()=>import("./components/Grocery.jsx"));
 
@@ -23,13 +23,13 @@ import UserContext from "./utils/UserContext.jsx";
             name:"Deepak Maurya",
           }
           setUserName(data.name);
-         })
+         },[])
 
 
 
             return( 
               //providing userContext to root level can use React>provider for Header only also
-           <UserContext.Provider value={{loggedInUser:userName}}>
+           <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
             <div className="app">
             {/* Header */}
             <Header/>

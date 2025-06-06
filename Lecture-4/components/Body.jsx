@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import RestaurentCard, { withOpenCloseInfo } from "./RestaurentCard";
 import { SWIGGY_RESTAURANTS_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -33,6 +35,8 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return <h1>Looks like you're offline. Please connect to the internet.</h1>;
+
+  const {loggedInUser,setUserName}=useContext(UserContext);
 
   return (
     <div className="body">
@@ -68,6 +72,13 @@ const Body = () => {
             Search
           </button>
         </div>
+        <div>
+          <label>User Name</label>
+          <input value={loggedInUser} onChange={(e)=>{
+            setUserName(e.target.value);
+          }}/>
+        </div>
+
       </div>
 
       <div className="res-container">
