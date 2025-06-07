@@ -3,6 +3,7 @@ import applogo from "../assets/applogo.png"; // 👈 Correct path from Header.js
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 // console.log(applogo);
 
 const Header=()=>{
@@ -24,9 +25,13 @@ const Header=()=>{
     //  },[])
 
      // when dependency array depends on some dependency then useEffect will get call only when that particular dependency changes.
-      useEffect(()=>{
+      // useEffect(()=>{
       // console.log("useEffect Called");
-     },[btnNameReact])
+   //   },[btnNameReact])
+
+//subscribing to the store using useSelector Hook which gives acces to appStore
+//here we are subscribing to cartSlice with name cart and its items
+const cartItems = useSelector((store)=>store.cart.items); //['burger','momos]
 
 
 
@@ -44,7 +49,7 @@ const Header=()=>{
           <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
               <li><Link to="/grocery">Our Grocery Store</Link></li>
-              <li>Cart (0 items)</li>
+              <li>Cart ({cartItems.length})</li>
              
               <button className="login" onClick={()=>{
                  btnNameReact==="Login"?setBtnNameReact("Logout"):setBtnNameReact("Login");
