@@ -44,7 +44,7 @@ const Header=()=>{
           <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
               <li><Link to="/grocery">Our Grocery Store</Link></li>
-              <li>Cart</li>
+              <li>Cart (0 items)</li>
              
               <button className="login" onClick={()=>{
                  btnNameReact==="Login"?setBtnNameReact("Logout"):setBtnNameReact("Login");
