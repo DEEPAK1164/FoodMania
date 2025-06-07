@@ -10,7 +10,7 @@
       import RestaurentMenu from "./components/RestaurentMenu.jsx";
       import UserContext from "./utils/UserContext.jsx";
       import { Provider } from "react-redux";
-      import appStore from "./utils/appStore.js";
+      import appStore from "./Store/appStore.js";
 
       const Grocery=lazy(()=>import("./components/Grocery.jsx"));
 
