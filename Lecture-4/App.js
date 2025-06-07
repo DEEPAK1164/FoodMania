@@ -9,7 +9,9 @@
       import Error from "./components/Error.jsx";
       import RestaurentMenu from "./components/RestaurentMenu.jsx";
       import UserContext from "./utils/UserContext.jsx";
-    
+      import { Provider } from "react-redux";
+      import appStore from "./utils/appStore.js";
+
       const Grocery=lazy(()=>import("./components/Grocery.jsx"));
 
 
@@ -28,7 +30,8 @@
 
 
             return( 
-              //providing userContext to root level can use React>provider for Header only also
+              <Provider store={appStore}>
+              {/* //providing userContext to root level can use React>provider for Header only also */}
            <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
             <div className="app">
             {/* Header */}
@@ -38,7 +41,8 @@
              <Outlet/>
             {/* Footer */}
            </div>
-           </UserContext.Provider>)
+           </UserContext.Provider>
+           </Provider>)
         
          }
 
