@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1749355760428" clover="3.2.0">
-  <project timestamp="1749355760429" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="3" coveredelements="3" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
-    <file name="sum.js" path="C:\Users\DEEPAK MAURYA\Desktop\Food Mania\Lecture-4\components\Tests\sum.js">
+<coverage generated="1749389908007" clover="3.2.0">
+  <project timestamp="1749389908007" name="All files">
+    <metrics statements="11" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2" elements="15" coveredelements="9" complexity="0" loc="11" ncloc="11" packages="2" files="2" classes="2"/>
+    <package name="components">
+      <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="Contact.jsx" path="C:\Users\DEEPAK MAURYA\Desktop\Food Mania\Lecture-4\components\Contact.jsx">
+        <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Tests">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-    </file>
+      <file name="sum.js" path="C:\Users\DEEPAK MAURYA\Desktop\Food Mania\Lecture-4\components\Tests\sum.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

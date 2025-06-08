@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import applogo from "../assets/applogo.png"; // 👈 Correct path from Header.jsx
+// import applogo from "../assets/applogo.png"; // 👈 Correct path from Header.jsx
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
@@ -37,10 +37,10 @@ const cartItems = useSelector((store)=>store.cart.items); //['burger','momos',..
 
 
     return <div className="header">
-
+{/* 
     <div className="logo-container">
      <img className="logo" src={applogo} alt="applogo" />
-    </div>
+    </div> */}
 
     <div className="nav-items">
        <ul>
