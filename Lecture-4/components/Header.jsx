@@ -31,7 +31,7 @@ const Header=()=>{
 
 //subscribing to the store using useSelector Hook which gives acces to appStore
 //here we are subscribing to cartSlice with name cart and its items
-const cartItems = useSelector((store)=>store.cart.items); //['burger','momos]
+const cartItems = useSelector((store)=>store.cart.items); //['burger','momos',...etc]
 
 
 
@@ -49,7 +49,10 @@ const cartItems = useSelector((store)=>store.cart.items); //['burger','momos]
           <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
               <li><Link to="/grocery">Our Grocery Store</Link></li>
-              <li>Cart ({cartItems.length})</li>
+              <li>
+               <Link to="/cart">Cart ({cartItems.length})</Link>
+              </li>
+             
              
               <button className="login" onClick={()=>{
                  btnNameReact==="Login"?setBtnNameReact("Logout"):setBtnNameReact("Login");

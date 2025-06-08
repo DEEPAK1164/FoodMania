@@ -11,6 +11,7 @@
       import UserContext from "./utils/UserContext.jsx";
       import { Provider } from "react-redux";
       import appStore from "./Store/appStore.js";
+import Cart from "./components/Cart.jsx";
 
       const Grocery=lazy(()=>import("./components/Grocery.jsx"));
 
@@ -71,6 +72,10 @@
                   // dynamic routing based on resId
                   path:"/restaurent/:resId",
                   element:<RestaurentMenu/>
+                 },
+                 {
+                     path:"/cart",
+                  element:<Cart/>
                  }
             ],
             errorElement:<Error/>
