@@ -647,3 +647,17 @@ background: linear-gradient(90deg, red 0%, white 100%);
     padding: 10px;
   }
 }
+
+
+/* ImpHooks */
+.box {
+  width: 200px;       /* Set width */
+  height: 200px;      /* Set height (same as width to make it square) */
+  background-color: #faf7f7;  /* Light gray background */
+  border: 2px solid #333;     /* Dark border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin:10px;
+}

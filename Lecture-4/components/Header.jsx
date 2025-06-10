@@ -52,6 +52,9 @@ const cartItems = useSelector((store)=>store.cart.items); //['burger','momos',..
               <li>
                <Link to="/cart">Cart ({cartItems.length})</Link>
               </li>
+              <li>
+                <Link to="/imphooks">ImpHooks</Link>
+              </li>
              
              
               <button className="login" onClick={()=>{

@@ -12,6 +12,7 @@
       import { Provider } from "react-redux";
       import appStore from "./Store/appStore.js";
 import Cart from "./components/Cart.jsx";
+import ImpHooks from "./components/ImpHooks.jsx";
 
       const Grocery=lazy(()=>import("./components/Grocery.jsx"));
 
@@ -76,6 +77,10 @@ import Cart from "./components/Cart.jsx";
                  {
                      path:"/cart",
                   element:<Cart/>
+                 },
+                 {
+                   path:"/imphooks",
+                   element:<ImpHooks/>
                  }
             ],
             errorElement:<Error/>
